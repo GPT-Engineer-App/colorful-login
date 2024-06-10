@@ -6,8 +6,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Index />} />
-      <Route exact path="/login" element={<Login />} />
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
