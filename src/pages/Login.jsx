@@ -1,6 +1,13 @@
 import { Box, Button, Container, Heading, Input, Stack, Text, VStack } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
+
   return (
     <Box
       bgGradient="linear(to-r, #6E66CC, #4A3FBF, #4138A8)"
@@ -23,7 +30,7 @@ const Login = () => {
           <Stack spacing={4} width="100%">
             <Input placeholder="Username or Email" />
             <Input placeholder="Password" type="password" />
-            <Button colorScheme="blue" width="100%">Login</Button>
+            <Button colorScheme="blue" width="100%" onClick={handleLogin}>Login</Button>
           </Stack>
         </VStack>
       </Container>
