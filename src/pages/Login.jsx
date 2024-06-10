@@ -26,7 +26,7 @@ const Login = () => {
           <Stack spacing={4} width="100%">
             <Input placeholder="Username or Email" />
             <Input placeholder="Password" type="password" />
-            <Button colorScheme="blue" width="100%" onClick={() => navigate('/index')}>Login</Button>
+            <Button colorScheme="blue" width="100%" onClick={() => navigate('/dashboard')}>Login</Button>
           </Stack>
         </VStack>
       </Container>
