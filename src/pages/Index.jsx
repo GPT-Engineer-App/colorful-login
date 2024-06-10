@@ -29,26 +29,6 @@ const Index = () => {
     ],
   };
 
-  const exerciseData = {
-    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
-    datasets: [
-      {
-        label: "Average",
-        data: [200, 250, 300, 350],
-        borderColor: "#2a69ac",
-        backgroundColor: "rgba(42, 105, 172, 0.2)",
-        fill: true,
-      },
-      {
-        label: "Today",
-        data: [220, 270, 320, 390],
-        borderColor: "#000000",
-        backgroundColor: "rgba(0, 0, 0, 0.2)",
-        fill: true,
-      },
-    ],
-  };
-
   return (
     <Container maxW="container.xl" py={10}>
       <Flex justify="space-between" mb={10}>
@@ -69,13 +49,6 @@ const Index = () => {
           </Box>
         </Box>
       </Flex>
-      <Box p={5} borderWidth="1px" borderRadius="lg">
-        <Heading size="md" mb={4}>Exercise Minutes</Heading>
-        <Text>Your exercise minutes are ahead of where you normally are.</Text>
-        <Box mt={4} h="200px">
-          <Line data={exerciseData} />
-        </Box>
-      </Box>
     </Container>
   );
 };
