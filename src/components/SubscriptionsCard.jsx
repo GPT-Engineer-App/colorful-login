@@ -11,7 +11,7 @@ const SubscriptionsCard = () => {
       {
         label: "Subscriptions",
         data: [200, 300, 250, 400, 350, 450, 500, 550, 600, 650, 700, 750],
-        backgroundColor: "#3182ce",
+        backgroundColor: "#2B6CB0",
       },
     ],
   };
@@ -26,12 +26,12 @@ const SubscriptionsCard = () => {
   };
 
   return (
-    <Box p={6} borderWidth="1px" borderRadius="lg" boxShadow="md">
+    <Box p={4} borderWidth="1px" borderRadius="md" boxShadow="sm" bg="white">
       <VStack align="start" spacing={4}>
-        <Text fontSize="xl" fontWeight="bold">Subscriptions</Text>
-        <Text fontSize="3xl" fontWeight="bold">+2350</Text>
-        <Text color="green.500" fontSize="lg">+180.1% from last month</Text>
-        <Box w="100%" h="300px">
+        <Text fontSize="lg" fontWeight="semibold" color="gray.700">Subscriptions</Text>
+        <Text fontSize="2xl" fontWeight="bold" color="blue.600">+2350</Text>
+        <Text color="blue.500" fontSize="md">+180.1% from last month</Text>
+        <Box w="100%" h="250px">
           <Bar data={data} options={options} />
         </Box>
       </VStack>

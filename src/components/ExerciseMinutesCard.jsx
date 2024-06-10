@@ -41,10 +41,10 @@ const ExerciseMinutesCard = () => {
   };
 
   return (
-    <Box p={4} borderWidth="1px" borderRadius="lg" boxShadow="sm">
-      <VStack align="start">
-        <Text fontSize="lg" fontWeight="bold">Exercise Minutes</Text>
-        <Text>Your exercise minutes are ahead of where you normally are.</Text>
+    <Box p={6} borderWidth="2px" borderRadius="md" boxShadow="md" bg="white">
+      <VStack align="start" spacing={3}>
+        <Text fontSize="2xl" fontWeight="semibold" color="teal.500">Exercise Minutes</Text>
+        <Text fontSize="md" color="gray.600">Keep up the good work! You're doing great.</Text>
         <Line data={data} options={options} />
       </VStack>
     </Box>
