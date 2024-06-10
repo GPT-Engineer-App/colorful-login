@@ -1,18 +1,18 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Container, SimpleGrid } from "@chakra-ui/react";
+import RevenueCard from "../components/RevenueCard";
+import SubscriptionsCard from "../components/SubscriptionsCard";
+import ExerciseMinutesCard from "../components/ExerciseMinutesCard";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
+    <Container maxW="container.xl" py={8}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+        <RevenueCard />
+        <SubscriptionsCard />
+      </SimpleGrid>
+      <SimpleGrid columns={1} spacing={8} mt={8}>
+        <ExerciseMinutesCard />
+      </SimpleGrid>
     </Container>
   );
 };
