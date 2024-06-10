@@ -44,7 +44,7 @@ const ExerciseMinutesCard = () => {
     <Box p={4} borderWidth="1px" borderRadius="lg" boxShadow="sm">
       <VStack align="start">
         <Text fontSize="lg" fontWeight="bold">Exercise Minutes</Text>
-        <Text>Keep up the great work! You're on track.</Text>
+        <Text>Your exercise minutes are ahead of where you normally are.</Text>
         <Line data={data} options={options} />
       </VStack>
     </Box>

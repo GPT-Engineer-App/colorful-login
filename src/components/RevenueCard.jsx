@@ -31,8 +31,8 @@ const RevenueCard = () => {
     <Box p={6} borderWidth="1px" borderRadius="lg" boxShadow="md">
       <VStack align="start" spacing={4}>
         <Text fontSize="xl" fontWeight="bold">Total Revenue</Text>
-        <Text fontSize="3xl" fontWeight="bold">$25,000.00</Text>
-        <Text color="green.500" fontSize="md">+25.0% from last month</Text>
+        <Text fontSize="3xl" fontWeight="bold">$15,231.89</Text>
+        <Text color="green.500" fontSize="md">+20.1% from last month</Text>
         <Box width="100%" height="300px">
           <Line data={data} options={options} />
         </Box>

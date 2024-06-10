@@ -28,7 +28,7 @@ const SubscriptionsCard = () => {
   return (
     <Box p={6} borderWidth="1px" borderRadius="lg" boxShadow="md">
       <VStack align="start" spacing={4}>
-        <Text fontSize="xl" fontWeight="bold">Monthly Subscriptions</Text>
+        <Text fontSize="xl" fontWeight="bold">Subscriptions</Text>
         <Text fontSize="3xl" fontWeight="bold">+2350</Text>
         <Text color="green.500" fontSize="lg">+180.1% from last month</Text>
         <Box w="100%" h="300px">
