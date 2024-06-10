@@ -10,9 +10,9 @@ const ExerciseMinutesCard = () => {
     datasets: [
       {
         label: "Exercise Minutes",
-        data: [200, 250, 300, 350, 400, 450, 500],
-        borderColor: "#2a69ac",
-        backgroundColor: "rgba(42, 105, 172, 0.2)",
+        data: [30, 45, 60, 50, 70, 80, 90],
+        borderColor: "#3182ce",
+        backgroundColor: "rgba(49, 130, 206, 0.2)",
         fill: true,
       },
     ],
@@ -24,6 +24,19 @@ const ExerciseMinutesCard = () => {
       legend: {
         display: false,
       },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            const label = context.dataset.label || '';
+            const value = context.raw;
+            if (context.dataIndex === 6) {
+              return `${label}: Today - ${value} mins`;
+            }
+            const average = context.dataset.data.reduce((a, b) => a + b, 0) / context.dataset.data.length;
+            return `${label}: ${value} mins (Avg: ${average.toFixed(2)} mins)`;
+          },
+        },
+      },
     },
   };
 
@@ -31,7 +44,7 @@ const ExerciseMinutesCard = () => {
     <Box p={4} borderWidth="1px" borderRadius="lg" boxShadow="sm">
       <VStack align="start">
         <Text fontSize="lg" fontWeight="bold">Exercise Minutes</Text>
-        <Text>Your exercise minutes are ahead of where you normally are.</Text>
+        <Text>Keep up the great work! You're on track.</Text>
         <Line data={data} options={options} />
       </VStack>
     </Box>
