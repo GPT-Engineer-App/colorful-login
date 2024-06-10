@@ -6,12 +6,12 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const SubscriptionsCard = () => {
   const data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [
       {
         label: "Subscriptions",
-        data: [200, 300, 250, 400, 350, 450, 500],
-        backgroundColor: "#2a69ac",
+        data: [200, 300, 250, 400, 350, 450, 500, 550, 600, 650, 700, 750],
+        backgroundColor: "#3182ce",
       },
     ],
   };
@@ -26,12 +26,14 @@ const SubscriptionsCard = () => {
   };
 
   return (
-    <Box p={4} borderWidth="1px" borderRadius="lg" boxShadow="sm">
-      <VStack align="start">
-        <Text fontSize="lg" fontWeight="bold">Subscriptions</Text>
-        <Text fontSize="2xl" fontWeight="bold">+2350</Text>
-        <Text color="green.500">+180.1% from last month</Text>
-        <Bar data={data} options={options} />
+    <Box p={6} borderWidth="1px" borderRadius="lg" boxShadow="md">
+      <VStack align="start" spacing={4}>
+        <Text fontSize="xl" fontWeight="bold">Monthly Subscriptions</Text>
+        <Text fontSize="3xl" fontWeight="bold">+2350</Text>
+        <Text color="green.500" fontSize="lg">+180.1% from last month</Text>
+        <Box w="100%" h="300px">
+          <Bar data={data} options={options} />
+        </Box>
       </VStack>
     </Box>
   );
