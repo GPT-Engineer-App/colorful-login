@@ -17,6 +17,7 @@ const fromSupabase = async (query) => {
     return data;
 };
 
+// Updated types section based on openapi.json spec
 /* supabase integration types
 
 Backtest // table: backtest
