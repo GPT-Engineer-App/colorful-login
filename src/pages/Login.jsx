@@ -1,17 +1,12 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, Input, Stack, Text, VStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useSupabaseAuth, SupabaseAuthUI } from "../integrations/supabase/auth.jsx";
 
 const Login = () => {
-  const { session } = useSupabaseAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (session) {
-      navigate("/");
-    }
-  }, [session, navigate]);
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
 
   return (
     <Box
@@ -29,7 +24,15 @@ const Login = () => {
         maxW="sm"
         textAlign="center"
       >
-        <SupabaseAuthUI />
+        <VStack spacing={4}>
+          <Heading as="h1" size="lg">Login</Heading>
+          <Text fontSize="lg">Welcome back! 😊</Text>
+          <Stack spacing={4} width="100%">
+            <Input placeholder="Username or Email" />
+            <Input placeholder="Password" type="password" />
+            <Button colorScheme="blue" width="100%" onClick={handleLogin}>Login</Button>
+          </Stack>
+        </VStack>
       </Container>
     </Box>
   );
