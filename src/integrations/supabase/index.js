@@ -17,70 +17,6 @@ const fromSupabase = async (query) => {
     return data;
 };
 
-/* supabase integration types
-
-Backtest // table: backtest
-    id: number
-    timestamp: string
-    model_version: string
-
-Prediction // table: prediction
-    id: number
-    coin_id: string
-    backtest_id: number
-    date: string
-    price_direction: string
-    confidence_level: string
-    percent_change: number
-    high: number
-
-CoinHistoricalChartData // table: coin_historical_chart_data
-    id: number
-    coin_id: string
-    timestamp: string
-    price: number
-    volume: number
-    market_cap: number
-
-Coin // table: coin
-    id: string
-    name: string
-    symbol: string
-    first_historical_data: string
-    last_historical_data: string
-
-Model // table: model
-    id: number
-    trained_from: string
-    trained_until: string
-    tested_from: string
-    tested_until: string
-    percent_precision: number
-    false_positives: number
-    scaler_storage_path: string
-    model_storage_path: string
-    is_active: boolean
-
-CoinOhlcHistory // table: coin_ohlc_history
-    id: number
-    coin_id: string
-    timestamp: string
-    open: number
-    high: number
-    low: number
-    close: number
-    interval: string
-
-CoinPriceHistory // table: coin_price_history
-    id: number
-    coin_id: string
-    timestamp: string
-    price: number
-    volume: number
-    market_cap: number
-
-*/
-
 // Hooks for Backtest table
 export const useBacktest = () => useQuery({
     queryKey: ['backtest'],
@@ -308,6 +244,39 @@ export const useDeleteCoinPriceHistory = () => {
         mutationFn: (id) => fromSupabase(supabase.from('coin_price_history').delete().eq('id', id)),
         onSuccess: () => {
             queryClient.invalidateQueries('coin_price_history');
+        },
+    });
+};
+
+// Hooks for User table
+export const useUser = () => useQuery({
+    queryKey: ['users'],
+    queryFn: () => fromSupabase(supabase.from('users').select('*')),
+});
+export const useAddUser = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: (newUser) => fromSupabase(supabase.from('users').insert([newUser])),
+        onSuccess: () => {
+            queryClient.invalidateQueries('users');
+        },
+    });
+};
+export const useUpdateUser = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: (updatedUser) => fromSupabase(supabase.from('users').update(updatedUser).eq('id', updatedUser.id)),
+        onSuccess: () => {
+            queryClient.invalidateQueries('users');
+        },
+    });
+};
+export const useDeleteUser = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: (id) => fromSupabase(supabase.from('users').delete().eq('id', id)),
+        onSuccess: () => {
+            queryClient.invalidateQueries('users');
         },
     });
 };
