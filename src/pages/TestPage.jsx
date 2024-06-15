@@ -2,6 +2,13 @@ import { Box, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { FaDollarSign, FaUsers, FaCreditCard, FaHeartbeat } from "react-icons/fa";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
+import { css } from "@emotion/react";
+
+const draggingStyle = css`
+  background: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: rotate(3deg);
+`;
 
 const TestPage = () => {
   const initialCards = [
@@ -60,7 +67,7 @@ const TestPage = () => {
             >
               {cards.map((card, index) => (
                 <Draggable key={card.id} draggableId={card.id} index={index}>
-                  {(provided) => (
+                  {(provided, snapshot) => (
                     <Box
                       p={6}
                       borderWidth="1px"
@@ -73,6 +80,7 @@ const TestPage = () => {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
+                      css={snapshot.isDragging ? draggingStyle : undefined}
                     >
                       <VStack align="start" spacing={3}>
                         <Text fontSize="lg" fontWeight="semibold" color="gray.700">
