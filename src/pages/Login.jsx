@@ -43,7 +43,7 @@ const Login = () => {
             <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             
-            <Button colorScheme="blue" width="100%" onClick={handleLogin}>Login</Button>
+            <Button bgGradient="linear(to-r, #6E66CC, #4A3FBF, #4138A8)" width="100%" onClick={handleLogin}>Login</Button>
           </Stack>
         </VStack>
       </Container>
